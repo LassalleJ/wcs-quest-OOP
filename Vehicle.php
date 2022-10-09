@@ -23,28 +23,34 @@ class Vehicle
         $this->setEnergySource($energySource);
     }
 
+    // GETTERS & SETTERS
 
     public function setEnergySource(string $energySource)
     {
-    if (in_array($energySource, self::ALLOWED_ENERGIES)) {
-        $this->energySource = $energySource;
-    }
+        if (in_array($energySource, self::ALLOWED_ENERGIES)) {
+            $this->energySource = $energySource;
+        }
     return $this;
     }
-public function getEnergyCurrentLevel():int {
-    return $this->energyCurrentLevel;
+
+
+    public function getEnergyCurrentLevel():int {
+        return $this->energyCurrentLevel;
     }
-public function setEnergyCurrentLevel (int $energyCurrentLevel):void {
-    $this->energyCurrentLevel = $energyCurrentLevel;
+    public function setEnergyCurrentLevel (int $energyCurrentLevel):void {
+        $this->energyCurrentLevel = $energyCurrentLevel;
     }      
-public function turnOn():string{
-    $this->isEngineOn=true;
-    return "The engine is on, we're ready to go ! <br>";
+
+
+    public function turnOn():string{
+        $this->isEngineOn=true;
+        return "The engine is on, we're ready to go ! <br>";
     }
-public function turnOff():string{
-    $this->isEngineOn=false;
-    return "The engine is now off.<br>";
+    public function turnOff():string{
+        $this->isEngineOn=false;
+        return "The engine is now off.<br>";
     }
+
 
     public function getColor():string {
         return $this->color;
@@ -52,7 +58,9 @@ public function turnOff():string{
     public function setColor(string $color):void {
         $this->color=$color;
     }
-    public function getCurrentSpeed():string{
+
+
+    public function getCurrentSpeed():int{
         return $this->currentSpeed;
     }
     public function setCurrentSpeed(int $currentSpeed):void {
@@ -60,18 +68,25 @@ public function turnOff():string{
             $this->currentSpeed =  $currentSpeed;
         }
     }
+
+
     public function getNbrWheels():int {
         return $this->nbrWheels;
     }
     public function setNbrWheels(int $nbrWheels):void {
         $this->nbrWheels = $nbrWheels;
     }
+
+
     public function getNbrSeats():int {
         return $this->nbrSeats;
     }
     public function setNbrSeats(int $nbrSeats):void {
         $this->nbrSeats = $nbrSeats;
     }
+
+    // MOVING FROWARD AND BRAKE FUNCTIONS
+
     public function goForward():string{
         $sentence="";
         if ($this->energyCurrentLevel <= 0){

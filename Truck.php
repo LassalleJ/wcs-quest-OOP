@@ -6,25 +6,29 @@ class Truck extends Vehicle
 {
     private int $loadingCapacity;
     private int $currentLoad=0;
+
     public function __construct(
         string $color,  
         int $nbrSeats, 
         int $nbrWheels,
         string $energySource,
         int $loadingCapacity
-        ) {
+        ) 
+        {
             parent::__construct($color,$nbrSeats,$nbrWheels,$energySource);
             $this->loadingCapacity=$loadingCapacity;
-
         }
-    public function getCurrentLoad(){
+    
+    // GETTERS & SETTERS
+
+    public function getCurrentLoad():string{
         if ($this->currentLoad<$loadingCapacity) {
             return 'In filling';
         } else {
             return 'Full';
         }
     }
-    public function loadTruck(int $load) {
+    public function loadTruck(int $load):string {
         if ($this->currentLoad+$load<$this->loadingCapacity) {
             $this->currentLoad+=$load;
             return 'Your truck has been loaded. It now contains '.$this->currentLoad.' tons of merchandise.<br>';
@@ -32,7 +36,7 @@ class Truck extends Vehicle
             return 'Your truck can\'t carry that much.<br>';
         }
     }
-    public function unloadTruck(int $load) {
+    public function unloadTruck(int $load):string {
         if ($this->currentLoad === 0) {
             return 'Your truck is empty.<br>';
         } else if ($load > $this->currentLoad) {

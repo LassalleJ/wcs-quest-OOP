@@ -7,8 +7,10 @@ require_once 'Truck.php';
 
 $twingo=new Car ('green',5,4,'electric');
 var_dump($twingo);
+
 $camion=new Truck('dark', 3, 12, 'fuel', 10);
 var_dump($camion);
+
 echo $camion->turnOn();
 echo $camion->goForward();
 echo $camion->setEnergyCurrentLevel(50);
