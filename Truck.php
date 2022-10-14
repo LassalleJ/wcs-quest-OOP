@@ -2,7 +2,7 @@
 
 require_once 'Vehicle.php';
 
-class Truck extends Vehicle 
+class Truck extends Vehicle
 {
     private int $loadingCapacity;
     private int $currentLoad=0;
@@ -22,7 +22,7 @@ class Truck extends Vehicle
     // GETTERS & SETTERS
 
     public function getCurrentLoad():string{
-        if ($this->currentLoad<$loadingCapacity) {
+        if ($this->currentLoad<$this->loadingCapacity) {
             return 'In filling';
         } else {
             return 'Full';
@@ -40,8 +40,10 @@ class Truck extends Vehicle
         if ($this->currentLoad === 0) {
             return 'Your truck is empty.<br>';
         } else if ($load > $this->currentLoad) {
-            return 'We removed '.$this->currentLoad. ' tons from your truck. It now contains nothing.<br>';
+            $message= 'We removed '.$this->currentLoad. ' tons from your truck. It now contains nothing.<br>';
             $this->currentLoad=0;
+            return $message;
+
         } else {
             $this->currentLoad=$this->currentLoad-$load;
             return 'We removed '.$load.' tons from your truck. It now contains '.$this->currentLoad.' tons.<br>';

@@ -1,7 +1,7 @@
 <?php
 
 
-class Vehicle 
+abstract class Vehicle
 {
     public const ALLOWED_ENERGIES =   [
         'fuel',
@@ -110,4 +110,6 @@ class Vehicle
         $sentence .="I've stopped.<br>";
         return $sentence;
     }
+//    Asbtract method
+//    abstract public function changeWheel();
 }
