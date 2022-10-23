@@ -39,7 +39,12 @@ abstract class Vehicle
     }
     public function setEnergyCurrentLevel (int $energyCurrentLevel):void {
         $this->energyCurrentLevel = $energyCurrentLevel;
-    }      
+    }
+
+    public function engineStatus():bool
+    {
+        return $this->isEngineOn;
+    }
 
 
     public function turnOn():string{
